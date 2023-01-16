@@ -1,6 +1,65 @@
+import { useState } from "react";
+import { Input } from "./components/Input";
+import { Dropdown } from "./components/DropDown";
+import { DisplayDropdowns } from "./components/DisplayDropdowns";
 
 const App = () => {
-return(<></>)
+
+    const [username, setUsername]  =  useState("")
+    const [password, setPassword]  =  useState("")
+
+    const [btnText, setBtnText]  =  useState("Show")
+
+    const [fieldType, setFieldType] = useState("password")
+
+    const [comment, setComment] = useState("")
+    
+
+    // make a input field named comment
+    // displayed as text until character number is less <8
+    // if more than 8 or 8, display textarea field instead
+
+
+return(<>
+
+    <Input 
+        type="text" 
+        placeholder="Username"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+        name="username"
+    />
+
+    <Input 
+        type={fieldType} 
+        placeholder="Password"
+        value={password}
+        name="password"
+        btnText={btnText}
+        onChange={e => setPassword(e.target.value)}
+
+        onMouseDown={() => {
+            setFieldType("text")
+            setBtnText("Hide")
+        }}
+
+        onMouseUp={() => {
+            setFieldType("password")
+            setBtnText("Show") 
+        }}
+
+    />
+        <Input 
+        type="text" 
+        placeholder="Comment"
+        value={comment}
+        onChange={e => setComment(e.target.value)}
+        name="comment"
+    />
+
+ 
+        <DisplayDropdowns/>
+</>)
   
 }
 export default App;
