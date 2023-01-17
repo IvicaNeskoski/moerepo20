@@ -1,5 +1,6 @@
-import { Dropdown } from "./Dropdown"
-import { socials, people } from "./mockData"
+import {Dropdown} from "./Dropdown"
+import {socials, people} from "../mockData"
+import { useState } from "react"
 
 export const DisplayDropdowns = () => {
 
@@ -7,22 +8,25 @@ export const DisplayDropdowns = () => {
     const [personSelected, setPersonSelected] = useState("")
 
     return <div>
-        {/*Socials*/}
-        <Dropdown
-        options={socials}
-        label="Socials"
-        onChange={e => setSocialSelected(e.target.value)}
+
+        {/* Socials */}
+        <Dropdown 
+            options={socials}
+            label="Socials"
+            onChange={e => setSocialSelected(e.target.value)}
+        /> 
+        <p> selected Social : {socialSelected} </p>
+
+
+        {/* People */}
+        <Dropdown 
+            options={people}
+            label="People"
+            onChange={e => setPersonSelected(e.target.value)}
         />
-        <p>selected : {socialSelected}</p>
+
+        <p> selected Person : {personSelected} </p>
 
 
-        {/*People*/}
-        <Dropdown/>
-        
-        onChange={e => setSocialSelected(e.target.value)}
-        <p> selected person : {personSelected}</p>
     </div>
-
-
-
 }
