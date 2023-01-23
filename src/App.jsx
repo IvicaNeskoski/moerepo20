@@ -1,4 +1,13 @@
+import { Navigation } from "./pages/components/Navigation";
+import "./css/style.css";
+
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <div>
+        <Navigation />
+      </div>
+    </>
+  );
 };
 export default App;
