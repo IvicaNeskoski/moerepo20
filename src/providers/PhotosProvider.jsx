@@ -11,6 +11,7 @@ export const PhotosContex = createContext(null);
 
 export const PhotosProvider = ({ children }) => {
   const [photos, setPhotos] = useState([]);
+  const [selectedPhotoId, setSelectedPhotoId] = useState(null);
 
   useEffect(() => {
     fetch(API_URL + "/photos?_limit=" + PHOTOS_LIMIT)
