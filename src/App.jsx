@@ -1,4 +1,9 @@
+import { Hello } from "./components/Hello";
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <Hello />
+    </>
+  );
 };
 export default App;
